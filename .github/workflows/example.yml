@@ -1,0 +1,32 @@
+---
+name: klardotsh zulip bot test
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  original:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Send a private message
+        uses: zulip/github-actions-zulip/send-message@v1
+        with:
+          api-key: ${{ secrets.ZULIP_API_KEY }}
+          email: 'klardotsh-gha-test-bot@chat.zulip.org'
+          organization-url: 'https://chat.zulip.org'
+          to: '25085' # user_id
+          type: 'private'
+          content: 'The wind is currently 45kts, did you retie your docklines?'
+  refactor:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Send a private message
+        uses: klardotsh/github-actions-zulip/send-message@typescriptification
+        with:
+          api-key: ${{ secrets.ZULIP_API_KEY }}
+          email: 'klardotsh-gha-test-bot@chat.zulip.org'
+          organization-url: 'https://chat.zulip.org'
+          to: '25085' # user_id
+          type: 'private'
+          content: 'The wind is currently 45kts, did you retie your docklines?'
