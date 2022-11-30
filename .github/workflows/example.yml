@@ -18,7 +18,7 @@ jobs:
           to: '25085' # user_id
           type: 'private'
           content: 'The wind is currently 45kts, did you retie your docklines?'
-  refactor:
+  klardotsh_typescriptification:
     runs-on: 'ubuntu-latest'
     steps:
       - name: Send a private message
@@ -30,3 +30,15 @@ jobs:
           to: '25085' # user_id
           type: 'private'
           content: 'The wind is currently 45kts, did you retie your docklines?'
+  pranasziaukas_node16:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Send a private message
+        uses: pranasziaukas/github-actions-zulip/send-message@5d7eaec70ee607383820df074400ac6da375e45e
+        with:
+          api-key: ${{ secrets.ZULIP_API_KEY }}
+          email: 'klardotsh-gha-test-bot@chat.zulip.org'
+          organization-url: 'https://chat.zulip.org'
+          to: '25085' # user_id
+          type: 'private'
+          content: "The wind is no longer 45kts but I still can't sleep"
